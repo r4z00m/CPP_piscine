@@ -3,9 +3,8 @@
 using std::cout;
 using std::endl;
 
-Fixed::Fixed() {
+Fixed::Fixed() : value(0) {
 	cout << "Default constructor called" << endl;
-	value = 0;
 }
 
 Fixed::~Fixed() {
@@ -19,16 +18,18 @@ Fixed::Fixed(const Fixed &fixed) {
 
 Fixed &Fixed::operator=(const Fixed &fixed) {
 	cout << "Copy assignment operator called" << endl;
-	value = fixed.getRawBits();
+	if (this != &fixed) {
+		this->value = fixed.getRawBits();
+	}
 	return *this;
 }
 
 int Fixed::getRawBits() const {
 	cout << "getRawBits member function called" << endl;
-	return value;
+	return this->value;
 }
 
 void Fixed::setRawBits(const int raw) {
 	cout << "setRawBits member function called" << endl;
-	value = raw;
+	this->value = raw;
 }
