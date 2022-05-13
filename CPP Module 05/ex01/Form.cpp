@@ -4,7 +4,8 @@ Form::Form() : name("Form"), isSigned(false), gradeToSign(1), gradeToExecute(1) 
 
 Form::~Form() {}
 
-Form::Form(int gradeToSign, int gradeToExecute) : name("Form"), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
+Form::Form(int gradeToSign, int gradeToExecute)
+: name("Form"), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
 	if (gradeToSign < 1 || gradeToExecute < 1) {
 		throw Form::GradeTooHighException("Grade too high");
 	} else if (gradeToSign > 150 || gradeToExecute > 150) {
@@ -12,16 +13,8 @@ Form::Form(int gradeToSign, int gradeToExecute) : name("Form"), isSigned(false),
 	}
 }
 
-Form::Form(const Form &form) : gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute) {
-	*this = form;
-}
-
-Form &Form::operator=(const Form &form) {
-	if (this != &form) {
-		this->isSigned = form.isSigned;
-	}
-	return *this;
-}
+Form::Form(const Form &form)
+: name(form.name), isSigned(form.isSigned), gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute) {}
 
 std::string Form::getName() const {
 	return this->name;

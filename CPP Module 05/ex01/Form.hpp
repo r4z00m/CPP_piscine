@@ -17,7 +17,6 @@ public:
 	~Form();
 	Form(int gradeToSign, int gradeToExecute);
 	Form(const Form &form);
-	Form &operator = (const Form &form);
 
 	std::string getName() const;
 	bool getSigned() const;
@@ -43,6 +42,8 @@ private:
 	bool isSigned;
 	const int gradeToSign;
 	const int gradeToExecute;
+
+	Form &operator = (const Form &form);
 };
 
 std::ostream &operator << (std::ostream &os, const Form &form);
