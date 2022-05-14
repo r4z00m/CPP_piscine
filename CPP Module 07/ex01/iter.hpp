@@ -4,7 +4,7 @@
 #include <string>
 
 template <typename T>
-void iter(T array[], int size, void (*f) (T t)) {
+void iter(T array[], int size, void (*f) (T const &t)) {
 	for (int i = 0; i < size; ++i) {
 		f(array[i]);
 	}
