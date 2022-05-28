@@ -10,7 +10,7 @@ public:
 	void attack();
 
 private:
-	Weapon *weapon;
+	Weapon &weapon;
 	string name;
 };
 
