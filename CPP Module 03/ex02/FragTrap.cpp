@@ -2,6 +2,9 @@
 
 FragTrap::FragTrap() {
 	cout << "FragTrap default constructor called" << endl;
+	this->hitPoints = 100;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
 }
 
 FragTrap::~FragTrap() {

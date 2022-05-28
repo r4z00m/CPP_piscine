@@ -2,6 +2,9 @@
 
 ScavTrap::ScavTrap() {
 	cout << "ScavTrap default constructor called" << endl;
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap() {
