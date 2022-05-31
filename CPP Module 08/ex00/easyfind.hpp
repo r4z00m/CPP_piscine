@@ -1,18 +1,19 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 #include <iostream>
+#include <algorithm>
 
 template<typename T>
 int easyfind(T &t, int i) {
-	typename T::iterator iterator;
-	iterator = t.begin();
-	while (iterator != t.end()) {
-		if (*iterator == i) {
-			return *iterator;
-		}
-		iterator++;
+	typename T::iterator it;
+
+	it = std::find(t.begin(), t.end(), i);
+
+	if (it != t.end()) {
+		return *it;
+	} else {
+		throw std::runtime_error("Error: elem not found!");
 	}
-	throw std::runtime_error("Error: elem not found!");
 }
 
 #endif
